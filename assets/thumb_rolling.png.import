@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cslfs7x8s1x3j"
-path="res://.godot/imported/cell.png-c5f345c9088171bec7393a69698d29b8.ctex"
+uid="uid://c7ln6n7hyscaq"
+path="res://.godot/imported/thumb_rolling.png-20ead3c02a06d627102831a0591e36f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cell.png"
-dest_files=["res://.godot/imported/cell.png-c5f345c9088171bec7393a69698d29b8.ctex"]
+source_file="res://assets/thumb_rolling.png"
+dest_files=["res://.godot/imported/thumb_rolling.png-20ead3c02a06d627102831a0591e36f6.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

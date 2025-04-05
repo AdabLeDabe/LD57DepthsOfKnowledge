@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmde1cuen6nd"
-path="res://.godot/imported/selected_cell.png-6aaa8713db7d9e7c65531d59d5662c86.ctex"
+uid="uid://bek0vcciasetq"
+path="res://.godot/imported/hand_rolling.png-1880da2a612936b2503d4b1532ed239f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/selected_cell.png"
-dest_files=["res://.godot/imported/selected_cell.png-6aaa8713db7d9e7c65531d59d5662c86.ctex"]
+source_file="res://assets/hand_rolling.png"
+dest_files=["res://.godot/imported/hand_rolling.png-1880da2a612936b2503d4b1532ed239f.ctex"]
 
 [params]
 
