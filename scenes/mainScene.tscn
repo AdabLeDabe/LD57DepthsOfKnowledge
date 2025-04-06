@@ -1,18 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://drr2ytsmcf50o"]
+[gd_scene load_steps=5 format=3 uid="uid://drr2ytsmcf50o"]
 
+[ext_resource type="Script" uid="uid://c4iegyh7gxb6i" path="res://scripts/joint_roll_scene.gd" id="1_hhxvm"]
 [ext_resource type="PackedScene" uid="uid://d2pmhyubkafwg" path="res://scenes/hand_filling_weed.tscn" id="1_ki6c0"]
 [ext_resource type="PackedScene" uid="uid://g88rt2205j4j" path="res://scenes/joint.tscn" id="2_8ifl6"]
+[ext_resource type="PackedScene" uid="uid://dq1e4us0cb4ra" path="res://scenes/roll_button.tscn" id="3_twn0q"]
 
-[node name="MainScene" type="Node2D"]
-
-[node name="HandFillingWeed" parent="." instance=ExtResource("1_ki6c0")]
-position = Vector2(245, 206)
-speed = 20
-amplitude = 10
-crumbled_weed_speed = 500
+[node name="JointRollScene" type="Node2D" node_paths=PackedStringArray("joint")]
+script = ExtResource("1_hhxvm")
+joint = NodePath("Joint")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
 [node name="Joint" parent="." instance=ExtResource("2_8ifl6")]
 position = Vector2(-3, 288)
+
+[node name="RollButton" parent="." instance=ExtResource("3_twn0q")]
+visible = false
+position = Vector2(988, 493)
+
+[node name="HandFillingWeed" parent="." instance=ExtResource("1_ki6c0")]
+position = Vector2(126, -209)
+speed = 20
+amplitude = 10
+crumbled_weed_speed = 500
+
+[connection signal="weed_threshold_met" from="Joint" to="." method="_on_joint_weed_threshold_met"]
+[connection signal="button_clicked" from="RollButton" to="." method="_on_roll_button_clicked"]
+[connection signal="mouse_start_hovering" from="RollButton" to="." method="_on_roll_button_mouse_start_hovering"]
+[connection signal="mouse_stop_hovering" from="RollButton" to="." method="_on_roll_button_mouse_stop_hovering"]

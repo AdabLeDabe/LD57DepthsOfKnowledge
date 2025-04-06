@@ -1,62 +1,86 @@
-[gd_scene load_steps=3 format=3 uid="uid://g88rt2205j4j"]
+[gd_scene load_steps=8 format=3 uid="uid://g88rt2205j4j"]
 
 [ext_resource type="Texture2D" uid="uid://f4l6on6hbupy" path="res://assets/joint_open.png" id="1_vbd78"]
+[ext_resource type="Script" uid="uid://bnnmxy6yvwi3g" path="res://scenes/joint.gd" id="1_xowrf"]
 [ext_resource type="PackedScene" uid="uid://dt20k4kafumar" path="res://scenes/weed_stack.tscn" id="2_ybnuy"]
+[ext_resource type="Texture2D" uid="uid://bi1tq8g8wenhr" path="res://assets/joint_roll_back.png" id="3_70pgy"]
+[ext_resource type="Texture2D" uid="uid://bibngmw4lawbx" path="res://assets/joint_roll_phase1/step1.png" id="5_05jfg"]
+[ext_resource type="PackedScene" uid="uid://w7n6n1ysfubn" path="res://scenes/left_hand_rolling_joint.tscn" id="6_05jfg"]
+[ext_resource type="PackedScene" uid="uid://br1j4elldeksv" path="res://scenes/right_hand_rolling_joint.tscn" id="7_wmwh8"]
 
 [node name="Joint" type="Node2D"]
+script = ExtResource("1_xowrf")
 
-[node name="JointSprite" type="Sprite2D" parent="."]
+[node name="JointSpritePhase0" type="Sprite2D" parent="."]
 texture = ExtResource("1_vbd78")
+
+[node name="JointSpriteBackPhase1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8.5, 7)
+texture = ExtResource("3_70pgy")
 
 [node name="WeedStack" parent="." node_paths=PackedStringArray("right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-203, 8)
 right_stack = NodePath("../WeedStack2")
 
 [node name="WeedStack2" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(-173, 9)
+position = Vector2(-170, 9)
 left_stack = NodePath("../WeedStack")
 right_stack = NodePath("../WeedStack3")
 
 [node name="WeedStack3" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(-142, 9)
+position = Vector2(-137, 10)
 left_stack = NodePath("../WeedStack2")
 right_stack = NodePath("../WeedStack4")
 
 [node name="WeedStack4" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(-113, 8)
+position = Vector2(-105, 10)
 left_stack = NodePath("../WeedStack3")
 right_stack = NodePath("../WeedStack5")
 
 [node name="WeedStack5" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(-83, 7)
+position = Vector2(-71, 8)
 left_stack = NodePath("../WeedStack4")
 right_stack = NodePath("../WeedStack6")
 
 [node name="WeedStack6" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(-53, 7)
+position = Vector2(-38, 5)
 left_stack = NodePath("../WeedStack5")
 right_stack = NodePath("../WeedStack7")
 
 [node name="WeedStack7" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(-22, 3)
+position = Vector2(-5, 3)
 left_stack = NodePath("../WeedStack6")
 right_stack = NodePath("../WeedStack8")
 
 [node name="WeedStack8" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(10, 2)
+position = Vector2(32, 1)
 left_stack = NodePath("../WeedStack7")
 right_stack = NodePath("../WeedStack9")
 
 [node name="WeedStack9" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(40, 0)
+position = Vector2(66, -1)
 left_stack = NodePath("../WeedStack8")
 right_stack = NodePath("../WeedStack10")
 
-[node name="WeedStack10" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(72, 0)
+[node name="WeedStack10" parent="." node_paths=PackedStringArray("left_stack") instance=ExtResource("2_ybnuy")]
+position = Vector2(98, -3)
 left_stack = NodePath("../WeedStack9")
-right_stack = NodePath("../WeedStack11")
 
-[node name="WeedStack11" parent="." node_paths=PackedStringArray("left_stack") instance=ExtResource("2_ybnuy")]
-position = Vector2(104, -2)
-left_stack = NodePath("../WeedStack10")
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="JointRollPhase1Step1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8.5, 19)
+texture = ExtResource("5_05jfg")
+
+[node name="LeftHandRollingJoint" parent="." instance=ExtResource("6_05jfg")]
+visible = false
+position = Vector2(-233, 170)
+
+[node name="RightHandRollingJoint" parent="." instance=ExtResource("7_wmwh8")]
+visible = false
+position = Vector2(222, 172)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -9,7 +9,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	rotation = rng.randf_range(0.0, 360.0)
 	rotation_speed = rng.randi_range(-max_rotation_speed, max_rotation_speed)
-	var scale_size = rng.randf_range(1.0, 1.5)
+	var scale_size = rng.randf_range(0.25, 1)
 	scale = Vector2(scale_size, scale_size)
 
 func _process(delta: float) -> void:
