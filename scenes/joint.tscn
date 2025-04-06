@@ -8,38 +8,55 @@
 [node name="JointSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_vbd78")
 
-[node name="WeedStack" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack" parent="." node_paths=PackedStringArray("right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-203, 8)
+right_stack = NodePath("../WeedStack2")
 
-[node name="WeedStack2" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack2" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-173, 9)
+left_stack = NodePath("../WeedStack")
+right_stack = NodePath("../WeedStack3")
 
-[node name="WeedStack3" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack3" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-142, 9)
+left_stack = NodePath("../WeedStack2")
+right_stack = NodePath("../WeedStack4")
 
-[node name="WeedStack4" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack4" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-113, 8)
+left_stack = NodePath("../WeedStack3")
+right_stack = NodePath("../WeedStack5")
 
-[node name="WeedStack5" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack5" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-83, 7)
+left_stack = NodePath("../WeedStack4")
+right_stack = NodePath("../WeedStack6")
 
-[node name="WeedStack6" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack6" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-53, 7)
+left_stack = NodePath("../WeedStack5")
+right_stack = NodePath("../WeedStack7")
 
-[node name="WeedStack7" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack7" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(-22, 3)
+left_stack = NodePath("../WeedStack6")
+right_stack = NodePath("../WeedStack8")
 
-[node name="WeedStack8" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack8" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(10, 2)
+left_stack = NodePath("../WeedStack7")
+right_stack = NodePath("../WeedStack9")
 
-[node name="WeedStack9" parent="." instance=ExtResource("2_ybnuy")]
+[node name="WeedStack9" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
 position = Vector2(40, 0)
+left_stack = NodePath("../WeedStack8")
+right_stack = NodePath("../WeedStack10")
 
-[node name="WeedStack10" parent="." instance=ExtResource("2_ybnuy")]
-position = Vector2(67, -1)
+[node name="WeedStack10" parent="." node_paths=PackedStringArray("left_stack", "right_stack") instance=ExtResource("2_ybnuy")]
+position = Vector2(72, 0)
+left_stack = NodePath("../WeedStack9")
+right_stack = NodePath("../WeedStack11")
 
-[node name="WeedStack11" parent="." instance=ExtResource("2_ybnuy")]
-position = Vector2(94, -2)
-
-[node name="WeedStack12" parent="." instance=ExtResource("2_ybnuy")]
-position = Vector2(119, -3)
+[node name="WeedStack11" parent="." node_paths=PackedStringArray("left_stack") instance=ExtResource("2_ybnuy")]
+position = Vector2(104, -2)
+left_stack = NodePath("../WeedStack10")

@@ -1,16 +1,36 @@
 extends Node2D
+class_name WeedStack
 
 var weed_texture = preload("res://assets/weed.png")
 var rng = RandomNumberGenerator.new()
+@export var stack_nb = 0.0
+@export var left_stack : WeedStack
+@export var right_stack : WeedStack
 
-func add_weed_stack() -> void:
+func add_weed_stack(stack_amount) -> void:
+	stack_nb += stack_amount
+
+func add_weed_sprite() -> void:
 	var weed_sprite : Sprite2D = Sprite2D.new()
 	weed_sprite.texture = weed_texture
 	weed_sprite.position = Vector2(rng.randf_range(-20.0, 20.0), rng.randf_range(-20.0, 20.0))
 	weed_sprite.rotation = rng.randf_range(0, 360)
+	weed_sprite.scale = Vector2(1 + stack_nb / 20, 1 + stack_nb / 20)
 	add_child(weed_sprite)
 
 func _on_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("weed")):
-		add_weed_stack()
+		add_weed_stack(1)
+		add_weed_sprite()
+		spread_stack()
 		area.get_parent().queue_free()
+
+func spread_stack():
+	if (left_stack != null):
+		left_stack.add_weed_stack(0.5)
+		if (left_stack.left_stack != null):
+			left_stack.left_stack.add_weed_stack(0.25)
+	if (right_stack != null):
+		right_stack.add_weed_stack(0.5)
+		if (right_stack.right_stack != null):
+			right_stack.right_stack.add_weed_stack(0.25)
