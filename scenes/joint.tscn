@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g88rt2205j4j"]
+[gd_scene load_steps=15 format=3 uid="uid://g88rt2205j4j"]
 
 [ext_resource type="Texture2D" uid="uid://f4l6on6hbupy" path="res://assets/joint_open.png" id="1_vbd78"]
 [ext_resource type="Script" uid="uid://bnnmxy6yvwi3g" path="res://scenes/joint.gd" id="1_xowrf"]
@@ -6,7 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bi1tq8g8wenhr" path="res://assets/joint_roll_back.png" id="3_70pgy"]
 [ext_resource type="Texture2D" uid="uid://bibngmw4lawbx" path="res://assets/joint_roll_phase1/step1.png" id="5_05jfg"]
 [ext_resource type="PackedScene" uid="uid://w7n6n1ysfubn" path="res://scenes/left_hand_rolling_joint.tscn" id="6_05jfg"]
+[ext_resource type="Texture2D" uid="uid://b732hfqmgae4u" path="res://assets/joint_roll_phase1/step2.png" id="6_ufxju"]
+[ext_resource type="Texture2D" uid="uid://dcoe86rqr5aqg" path="res://assets/joint_roll_phase1/step3.png" id="7_6v8fi"]
 [ext_resource type="PackedScene" uid="uid://br1j4elldeksv" path="res://scenes/right_hand_rolling_joint.tscn" id="7_wmwh8"]
+[ext_resource type="Texture2D" uid="uid://cbq7uba36rntt" path="res://assets/joint_roll_phase1/step4.png" id="8_qnkn2"]
+[ext_resource type="Texture2D" uid="uid://bkfup3apy1565" path="res://assets/joint_roll_phase2/step1.png" id="9_yuixd"]
+[ext_resource type="Texture2D" uid="uid://bujrnw66sy845" path="res://assets/joint_roll_phase2/step2.png" id="10_bccge"]
+[ext_resource type="Texture2D" uid="uid://ku8m7gr4r0vd" path="res://assets/joint_roll_phase2/step3.png" id="11_shum1"]
+[ext_resource type="Texture2D" uid="uid://udr8xi48x634" path="res://assets/joint_roll_phase2/step4.png" id="12_slajr"]
 
 [node name="Joint" type="Node2D"]
 script = ExtResource("1_xowrf")
@@ -75,6 +82,41 @@ visible = false
 position = Vector2(-8.5, 19)
 texture = ExtResource("5_05jfg")
 
+[node name="JointRollPhase1Step2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-11, 24)
+texture = ExtResource("6_ufxju")
+
+[node name="JointRollPhase1Step3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-10, 25)
+texture = ExtResource("7_6v8fi")
+
+[node name="JointRollPhase1Step4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, 23)
+texture = ExtResource("8_qnkn2")
+
+[node name="JointRollPhase1Step5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-11, 16)
+texture = ExtResource("9_yuixd")
+
+[node name="JointRollPhase1Step6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-12, 17)
+texture = ExtResource("10_bccge")
+
+[node name="JointRollPhase1Step7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-12, 20)
+texture = ExtResource("11_shum1")
+
+[node name="JointRollPhase1Step8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-24, 21)
+texture = ExtResource("12_slajr")
+
 [node name="LeftHandRollingJoint" parent="." instance=ExtResource("6_05jfg")]
 visible = false
 position = Vector2(-233, 170)
@@ -84,3 +126,4 @@ visible = false
 position = Vector2(222, 172)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="roll_progressed" from="LeftHandRollingJoint" to="." method="_on_roll_progressed"]
