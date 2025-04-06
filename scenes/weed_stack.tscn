@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt20k4kafumar"]
+
+[ext_resource type="Script" uid="uid://cx5rbn2din2y0" path="res://scripts/weed_stack.gd" id="1_fjt3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lclp2"]
+
+[node name="WeedStack" type="Node2D"]
+script = ExtResource("1_fjt3s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lclp2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]

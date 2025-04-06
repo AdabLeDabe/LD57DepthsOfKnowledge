@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drr2ytsmcf50o"]
+[gd_scene load_steps=3 format=3 uid="uid://drr2ytsmcf50o"]
 
 [ext_resource type="PackedScene" uid="uid://d2pmhyubkafwg" path="res://scenes/hand_filling_weed.tscn" id="1_ki6c0"]
+[ext_resource type="PackedScene" uid="uid://g88rt2205j4j" path="res://scenes/joint.tscn" id="2_8ifl6"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -8,3 +9,10 @@
 position = Vector2(245, 206)
 speed = 20
 amplitude = 10
+crumbled_weed_speed = 500
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Joint" parent="." instance=ExtResource("2_8ifl6")]
+position = Vector2(-3, 288)

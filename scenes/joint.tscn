@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://g88rt2205j4j"]
+
+[ext_resource type="Texture2D" uid="uid://f4l6on6hbupy" path="res://assets/joint_open.png" id="1_vbd78"]
+[ext_resource type="PackedScene" uid="uid://dt20k4kafumar" path="res://scenes/weed_stack.tscn" id="2_ybnuy"]
+
+[node name="Joint" type="Node2D"]
+
+[node name="JointSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_vbd78")
+
+[node name="WeedStack" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-203, 8)
+
+[node name="WeedStack2" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-173, 9)
+
+[node name="WeedStack3" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-142, 9)
+
+[node name="WeedStack4" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-113, 8)
+
+[node name="WeedStack5" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-83, 7)
+
+[node name="WeedStack6" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-53, 7)
+
+[node name="WeedStack7" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(-22, 3)
+
+[node name="WeedStack8" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(10, 2)
+
+[node name="WeedStack9" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(40, 0)
+
+[node name="WeedStack10" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(67, -1)
+
+[node name="WeedStack11" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(94, -2)
+
+[node name="WeedStack12" parent="." instance=ExtResource("2_ybnuy")]
+position = Vector2(119, -3)

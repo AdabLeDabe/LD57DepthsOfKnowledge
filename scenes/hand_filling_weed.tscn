@@ -23,3 +23,12 @@ position = Vector2(-34, 0)
 rotation = -2.35619
 texture = ExtResource("4_8hch7")
 flip_h = true
+
+[node name="weedSpawnPoint" type="Node2D" parent="thumb"]
+position = Vector2(-109.602, -153.442)
+rotation = 2.35619
+
+[node name="weedTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="weedTimer" to="." method="_on_timer_timeout"]
